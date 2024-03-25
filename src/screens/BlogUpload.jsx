@@ -14,7 +14,6 @@ import {
     Windmill,
 } from "react-activity";
 import "react-activity/dist/library.css";
-import Header from "./Header";
 import Aside from "./Aside";
 const firebaseConfig = {
     apiKey: "AIzaSyA8PnNOuXFKGUarBqHQ7a94nIfP-boimhk",
@@ -30,18 +29,17 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 export const storage = getStorage(app);
 
-export default function Upload() {
-    const [productName, setProductName] = useState("");
-    const [productPrice, setProductPrice] = useState("");
-    const [productDescription, setProductDescription] = useState([]);
-    const [productImage, setProductImage] = useState();
+export default function BlogUpload() {
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [blogImage, setBlogImage] = useState();
     const [url, setUrl] = useState("");
     const [progress, setProgrss] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const productsRef = ref(database, "products");
-        const storageRef = sref(storage, productImage.name);
-        const uploadTask = uploadBytesResumable(storageRef, productImage);
+        const productsRef = ref(database, "blogs");
+        const storageRef = sref(storage, blogImage.name);
+        const uploadTask = uploadBytesResumable(storageRef, blogImage);
         uploadTask.on(
             "state_changed",
             (snapshot) => {
@@ -59,19 +57,17 @@ export default function Upload() {
                     setUrl(url);
                     console.log(url);
                     push(productsRef, {
-                        name: productName,
-                        price: productPrice,
-                        description: productDescription,
+                        title: title,
+                        content: content,
                         imageUrl: url,
-                        seller: "Apario Retail",
+                        publisher: "Apario Retail",
                     }).then(() => {
                         alert("Upload Complete");
                         setProgrss(false);
                     });
-                    setProductName("");
-                    setProductPrice("");
-                    setProductDescription([]);
-                    setProductImage(null);
+                    setTitle("");
+                    setContent("");
+                    setBlogImage(null);
                 });
             }
         );
@@ -83,13 +79,12 @@ export default function Upload() {
             <div style={{}}>
                 <div className="bg-black pt-3 pb-1">
                     <h1 className="text-3xl text-white mb-4 text-center">
-                        Seller Product Upload Portal
+                        Blog Upload Portal
                     </h1>
                     <hr />
                     <br />
                     <h1 className="text  text-white mb-5 text-center">
-                        Effortlessly upload and your products with our intuitive upload
-                        interface
+                        Effortlessly engage with your customers and grow your business
                     </h1>
                 </div>
                 {progress ? (
@@ -104,64 +99,48 @@ export default function Upload() {
                             <table style={{width:'900px', height:'300px'}}>
                                 <tr>
                                     <td style={{ border: '4px solid black' }}>
-                                        <label htmlFor="productName" className="font-bold text-black">
-                                            Product Name
+                                        <label htmlFor="title" className="font-bold text-black">
+                                            Post Title
                                         </label>
                                     </td>
                                     <td style={{ border: '4px solid black' }}>
                                         <input
                                             type="text"
-                                            id="productName"
-                                            value={productName}
-                                            onChange={(e) => setProductName(e.target.value)}
+                                            id="title"
+                                            value={title}
+                                            onChange={(e) => setTitle(e.target.value)}
                                             className="border rounded-md px-3 py-2 bg-gray-300 text-black w-full"
                                         />
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td style={{ border: '4px solid black' }}>
-                                    <label htmlFor="productPrice" className="font-bold text-black">
-                                    Product Price
-                                </label>
-                                    </td>
-                                    <td style={{ border: '4px solid black' }}>
-                                    <input
-                                    type="number"
-                                    id="productPrice"
-                                    value={productPrice}
-                                    onChange={(e) => setProductPrice(e.target.value)}
-                                    className=" border rounded-md px-3 py-2 bg-gray-300 text-black w-full"
-                                />
-                                    </td>
-                                </tr>
+                                
                                 <tr>
                                     <td style={{ border: '4px solid black' }}>
                                     <label
-                                    htmlFor="productDescription"
+                                    htmlFor="content"
                                     className="font-bold text-black"
                                 >
-                                    Product Description
+                                    Post Content
                                 </label>
                                     </td>
                                     <td style={{ border: '4px solid black' }}>
                                     <input
                                     type="text"
-                                    id="productDescription"
-                                    value={productDescription}
-                                    onChange={(e) => setProductDescription(e.target.value)}
+                                    id="content"
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
                                     className=" border rounded-md px-3 py-2 bg-gray-300 text-black w-full"
-                                    maxLength={200}
                                 />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{ border: '4px solid black' }}><label htmlFor="productImage" className="font-bold text-black">
-                                    Product Image
+                                    <td style={{ border: '4px solid black' }}><label htmlFor="blogImage" className="font-bold text-black">
+                                    Post Image
                                 </label></td>
                                     <td style={{ border: '4px solid black' }}><input
                                     type="file"
-                                    id="productImage"
-                                    onChange={(e) => setProductImage(e.target.files[0])}
+                                    id="blogImage"
+                                    onChange={(e) => setBlogImage(e.target.files[0])}
                                     className=""
                                     style={{
                                         width: "auto",
@@ -169,9 +148,9 @@ export default function Upload() {
                                         minWidth: "215px",
                                     }}
                                 />
-                                {productImage && (
+                                {blogImage && (
                                     <img
-                                        src={URL.createObjectURL(productImage)}
+                                        src={URL.createObjectURL(blogImage)}
                                         alt="Product Preview"
                                         className=""
                                         style={{
