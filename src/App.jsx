@@ -11,10 +11,10 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
+          <Route path="/signup" index element={<SignUpTwo />} />
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUpTwo />} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/blogUpload" element={<BlogUpload />} />
+          <Route path="/blogupload" element={<BlogUpload />} />
         </Routes>
       </BrowserRouter>
     </>

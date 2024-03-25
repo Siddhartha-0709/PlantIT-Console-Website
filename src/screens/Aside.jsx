@@ -1,10 +1,11 @@
 import React from 'react'
 import { BarChart, Wallet, Newspaper, BellRing, Paperclip, Brush, Wrench, BadgeIndianRupee, HomeIcon, Flower2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function Aside() {
   return (
     <aside className="flex h-full min-h-screen w-64 flex-col overflow-y-auto border-r bg-black px-5 py-8" style={{float:'left', height:'100%'}}>
-      <a href="#" style={{flexDirection:'row'}}>
+      <Link href="#" style={{flexDirection:'row'}}>
         <svg
           width="40"
           height="46"
@@ -17,67 +18,67 @@ function Aside() {
             fill="white"
           />
         </svg>
-      </a>
+      </Link>
       <div className="mt-6 flex flex-1 flex-col justify-between">
         <nav className="-mx-3 space-y-6 ">
           <div className="space-y-3 ">
             <label className="px-3 text-xs font-semibold uppercase text-white">Business</label>
-            <a
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-50 hover:text-gray-700"
               href="#"
             >
               <HomeIcon className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Home</span>
-            </a>
-            <a
+            </Link>
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
               href="#"
             >
               <BadgeIndianRupee className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Orders</span>
-            </a>
+            </Link>
           </div>
           <div className="space-y-3 ">
             <label className="px-3 text-xs font-semibold uppercase text-white">content</label>
-            <a
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
-              href="/upload"
+              to="/upload"
             >
               <Flower2 className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Product Upload</span>
-            </a>
-            <a
+            </Link>
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
-              href="/blogUpload"
+              to="/blogUpload"
             >
               <Newspaper className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Blog Upload</span>
-            </a>
-            <a
+            </Link>
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
               href="#"
             >
               <Paperclip className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Checklists</span>
-            </a>
+            </Link>
           </div>
 
           <div className="space-y-3 ">
             <label className="px-3 text-xs font-semibold uppercase text-white">Account and Help</label>
-            <a
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
               href="#"
             >
               <Brush className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-sm font-medium">Help and Feedback</span>
-            </a>
-            <a
+            </Link>
+            <Link
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-200 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
-              href="#"
+              to="/signup"
             >
               <Wrench className="h-5 w-5" aria-hidden="true" />
-              <span className="mx-2 text-sm font-medium">Sign</span>
-            </a>
+              <span className="mx-2 text-sm font-medium">Sign Out</span>
+            </Link>
           </div>
         </nav>
       </div>
