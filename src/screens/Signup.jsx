@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Footer } from './Footer';
 export function SignUpTwo() {
 
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const handleGoogleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
@@ -17,17 +17,27 @@ export function SignUpTwo() {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 // The signed-in user info.
-                console.log(token);
-                const user = result.user;
-                console.log('Logged in user:', user);
-                if (user.emailVerified == true) {
+                // console.log(token);
+                const user = result.user.toJSON();
+                console.log('This is Json');
+                console.log(user);
+                console.log('User Email Verified', user.emailVerified);
+                console.log('UserName', user.displayName);
+                console.log('User Email', user.email);
+                console.log('User Photo', user.photoURL);
+                const name = user.displayName;
+                const email = user.email;
+                const photo = user.photoURL;
+
+                if (user.emailVerified === true) {
+                    console.log('User Email Verified');
                     const userData = {
                         id: user.uid,
                         email: user.email,
                         name: user.displayName,
                         displayImage: user.photoURL
                     }
-                    navigation('/home', userData);
+                   navigate('/dashboard', { state: { userData: userData } });
                 } else {
                     alert('Please verify your email to continue');
                 }

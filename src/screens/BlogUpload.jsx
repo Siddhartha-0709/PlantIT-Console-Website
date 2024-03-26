@@ -15,6 +15,7 @@ import {
 } from "react-activity";
 import "react-activity/dist/library.css";
 import Aside from "./Aside";
+import { useLocation } from "react-router-dom";
 const firebaseConfig = {
     apiKey: "AIzaSyA8PnNOuXFKGUarBqHQ7a94nIfP-boimhk",
     authDomain: "plantit-416016.firebaseapp.com",
@@ -30,6 +31,8 @@ const database = getDatabase(app);
 export const storage = getStorage(app);
 
 export default function BlogUpload() {
+    const location = useLocation();
+    const userData = location.state.userData;
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [blogImage, setBlogImage] = useState();
@@ -60,7 +63,8 @@ export default function BlogUpload() {
                         title: title,
                         content: content,
                         imageUrl: url,
-                        publisher: "Apario Retail",
+                        publisher: userData.name,
+                        publisherImage: userData.displayImage
                     }).then(() => {
                         alert("Upload Complete");
                         setProgrss(false);
@@ -75,7 +79,7 @@ export default function BlogUpload() {
 
     return (
         <>
-            <Aside />
+            <Aside userData={userData} />
             <div style={{}}>
                 <div className="bg-black pt-3 pb-1">
                     <h1 className="text-3xl text-white mb-4 text-center">

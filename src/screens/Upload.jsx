@@ -16,6 +16,7 @@ import {
 import "react-activity/dist/library.css";
 import Header from "./Header";
 import Aside from "./Aside";
+import { useLocation } from "react-router-dom";
 const firebaseConfig = {
     apiKey: "AIzaSyA8PnNOuXFKGUarBqHQ7a94nIfP-boimhk",
     authDomain: "plantit-416016.firebaseapp.com",
@@ -31,6 +32,9 @@ const database = getDatabase(app);
 export const storage = getStorage(app);
 
 export default function Upload() {
+    const location = useLocation();
+    const userData = location.state.userData;
+    // console.log(userData);
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
     const [productDescription, setProductDescription] = useState([]);
@@ -63,7 +67,7 @@ export default function Upload() {
                         price: productPrice,
                         description: productDescription,
                         imageUrl: url,
-                        seller: "Apario Retail",
+                        seller: userData.name,
                     }).then(() => {
                         alert("Upload Complete");
                         setProgrss(false);
@@ -79,7 +83,7 @@ export default function Upload() {
 
     return (
         <>
-            <Aside />
+            <Aside userData={userData} />
             <div style={{}}>
                 <div className="bg-black pt-3 pb-1">
                     <h1 className="text-3xl text-white mb-4 text-center">
