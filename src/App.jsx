@@ -7,6 +7,9 @@ import BlogUpload from './screens/BlogUpload';
 import Orders from './screens/Orders';
 import Dashboard from './screens/Dashboard';
 import Contact from './screens/Contact';
+import './index.css';
+import Privacy from './screens/Privacy';
+import ContactUs from './screens/ContactUs';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -14,13 +17,16 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
-          <Route path="/signup" index element={<SignUpTwo />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" index element={<Home />} />
+          <Route path="/signup"  element={<SignUpTwo />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/blogupload" element={<BlogUpload />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/touch" element={<ContactUs />} />
+          <Route path="/privacy" element={<Privacy />} />
+
         </Routes>
       </BrowserRouter>
     </>

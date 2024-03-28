@@ -40,11 +40,11 @@ function Home() {
             <tr>
       
               <td>
-                <div className="mt-8">
+                <div className="mt-8 bg-black w-52 h-8 rounded-lg">
                   <Link
                     type="button"
-                    className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    style={{width:'180px'}}
+                    className="text-white flex justify-center items-center h-full"
+                    
                     to={`/signup`}
                   >
                     <center>
@@ -54,11 +54,11 @@ function Home() {
                 </div>
               </td>
               <td>
-                <div className="mt-8 ml-3">
+                <div className="mt-8 ml-3 bg-black w-52 h-8 rounded-lg">
                   <Link
                     type="button"
-                    className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    style={{width:'180px'}}
+                    className="text-white flex justify-center items-center h-full"
+                    
                     to={`/signup`}
                   >
                     <center>
@@ -68,12 +68,12 @@ function Home() {
                 </div>
               </td>
               <td>
-                <div className="mt-8 ml-3">
+                <div className="mt-8 ml-3 bg-black w-52 h-8 rounded-lg">
                   <Link
                     type="button"
-                    className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    style={{width:'180px'}}
-                    to={`/signup`}
+                    className="text-white flex justify-center items-center h-full"
+                    
+                    to={`/touch`}
                   >
                     <center>
                       Contact Us
@@ -82,12 +82,12 @@ function Home() {
                 </div>
               </td>
               <td>
-                <div className="mt-8 ml-3">
+                <div className="mt-8 ml-3 bg-black w-52 h-8 rounded-lg">
                   <Link
                     type="button"
-                    className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    style={{width:'180px'}}
-                    to={`/signup`}
+                    className="text-white flex justify-center items-center h-full"
+                    
+                    to={`/privacy`}
                   >
                     <center>
                       Privacy Policy
