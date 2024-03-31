@@ -62,7 +62,7 @@ function Dashboard() {
                     <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
                         <img
                             className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9]"
-                            src="https://images.pexels.com/photos/17663090/pexels-photo-17663090/free-photo-of-sunlit-leaves-of-plant.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            src="https://images.pexels.com/photos/17838784/pexels-photo-17838784/free-photo-of-insects-perching-on-pinkish-coneflowers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt=""
                         />
                     </div>

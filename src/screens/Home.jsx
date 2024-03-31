@@ -100,7 +100,7 @@ function Home() {
           <div className="rounded-lg bg-gray-200 p-4">
             <img
               className="aspect-[3/2] w-full rounded-lg bg-gray-50 object-cover lg:aspect-auto lg:h-[400px]"
-              src="https://firebasestorage.googleapis.com/v0/b/plantit-416016.appspot.com/o/image.png?alt=media&token=08fb70c9-bef3-40e3-a1c3-aa3352e6c454"
+              src="https://firebasestorage.googleapis.com/v0/b/plantit-416016.appspot.com/o/pp.png?alt=media&token=6201b724-4821-4899-a151-556c02e32096"
               alt=""
             />
           </div>
