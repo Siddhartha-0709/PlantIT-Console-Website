@@ -41,6 +41,23 @@ export default function Upload() {
     const [productImage, setProductImage] = useState();
     const [url, setUrl] = useState("");
     const [progress, setProgrss] = useState(false);
+
+    function generateProductId(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let orderId = '';
+        
+        // Add timestamp to ensure uniqueness
+        const timestamp = Date.now().toString(36);
+        orderId += timestamp;
+      
+        // Generate random characters to complete the ID
+        for (let i = 0; i < length - timestamp.length; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          orderId += characters[randomIndex];
+        }
+        
+        return orderId;
+      }
     const handleSubmit = async (e) => {
         e.preventDefault();
         const productsRef = ref(database, "products");
@@ -68,6 +85,7 @@ export default function Upload() {
                         description: productDescription,
                         imageUrl: url,
                         seller: userData.name,
+                        productId:generateProductId(6)
                     }).then(() => {
                         alert("Upload Complete");
                         setProgrss(false);

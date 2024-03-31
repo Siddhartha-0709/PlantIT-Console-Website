@@ -26,7 +26,6 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/touch" element={<ContactUs />} />
           <Route path="/privacy" element={<Privacy />} />
-
         </Routes>
       </BrowserRouter>
     </>
