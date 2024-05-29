@@ -18,15 +18,16 @@ import Header from "./Header";
 import Aside from "./Aside";
 import { useLocation } from "react-router-dom";
 const firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    measurementId: "",
+  apiKey: "AIzaSyA8PnNOuXFKGUarBqHQ7a94nIfP-boimhk",
+  authDomain: "plantit-416016.firebaseapp.com",
+  databaseURL: "https://plantit-416016-default-rtdb.firebaseio.com",
+  projectId: "plantit-416016",
+  storageBucket: "plantit-416016.appspot.com",
+  messagingSenderId: "428181209108",
+  appId: "1:428181209108:web:dd231b65b26e754486a701",
+  measurementId: "G-C1PPLEPGY6"
 };
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 export const storage = getStorage(app);
